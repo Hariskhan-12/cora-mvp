@@ -1,0 +1,89 @@
+graph TB
+    subgraph CLIENT["🖥️ Client Layer"]
+        USER(["👤 User"])
+        UI["React + TypeScript + Vite<br/><i>Dark-themed responsive UI</i>"]
+    end
+
+    subgraph API_LAYER["⚡ API Layer — FastAPI"]
+        HEALTH["GET /health<br/><i>Health check + vector store status</i>"]
+        QUERY["POST /api/v1/query<br/><i>Submit regulatory question</i>"]
+        SOURCES["GET /api/v1/sources<br/><i>List available documents</i>"]
+        CORS["CORS Middleware"]
+        VALIDATION["Pydantic Request Validation"]
+    end
+
+    subgraph RAG["🔍 RAG Pipeline"]
+        QUERY_SVC["Query Service<br/><i>Orchestrator</i>"]
+
+        subgraph RETRIEVAL["Retrieval"]
+            EMBED_Q["Embedding Function<br/><i>all-MiniLM-L6-v2</i><br/><i>sentence-transformers</i>"]
+            RETRIEVER["Retriever<br/><i>Top-K retrieval + relevance filtering</i>"]
+        end
+
+        subgraph GENERATION["Generation"]
+            PROMPT["Prompt Builder<br/><i>System prompt + context template</i>"]
+            LLM_SVC["LLM Service<br/><i>httpx async client</i>"]
+        end
+
+        GROUNDING["Grounding Validator<br/><i>Lexical overlap + refusal detection</i>"]
+    end
+
+    subgraph DATA["💾 Data Stores"]
+        CHROMA[("Chroma Vector DB<br/><i>Cosine similarity search</i><br/><i>Local persistent storage</i>")]
+        DOCS[("Regulatory Documents<br/><i>JSON — NHTSA, SAE J3016,</i><br/><i>California DMV, EU GSR</i>")]
+    end
+
+    subgraph EXTERNAL["☁️ External Services"]
+        GROQ["Groq API<br/><i>OpenAI-compatible endpoint</i><br/><i>GPT OSS 120B</i>"]
+    end
+
+    subgraph INGESTION["📥 Ingestion Pipeline"]
+        INGEST["scripts/ingest.py"]
+        CHUNKER["Text Chunker<br/><i>~600 words, 80-word overlap</i>"]
+        EMBED_I["Embedding Generator<br/><i>all-MiniLM-L6-v2</i>"]
+    end
+
+    %% Client flow
+    USER -->|"Asks question"| UI
+    UI -->|"HTTP / JSON"| CORS
+    CORS --> VALIDATION
+    VALIDATION --> QUERY
+    VALIDATION --> HEALTH
+    VALIDATION --> SOURCES
+    UI ---|"Health check on load"| HEALTH
+
+    %% Query flow
+    QUERY --> QUERY_SVC
+    QUERY_SVC --> EMBED_Q
+    EMBED_Q --> RETRIEVER
+    RETRIEVER -->|"Similarity search"| CHROMA
+    CHROMA -->|"Top-K chunks + metadata"| RETRIEVER
+    RETRIEVER -->|"Relevant chunks + sources"| QUERY_SVC
+    QUERY_SVC --> PROMPT
+    PROMPT -->|"System + user message"| LLM_SVC
+    LLM_SVC -->|"Chat completion request"| GROQ
+    GROQ -->|"Generated answer"| LLM_SVC
+    LLM_SVC --> QUERY_SVC
+    QUERY_SVC --> GROUNDING
+    GROUNDING -->|"Answer + sources + grounded flag"| QUERY
+
+    %% Ingestion flow
+    DOCS -->|"Load JSON"| INGEST
+    INGEST --> CHUNKER
+    CHUNKER --> EMBED_I
+    EMBED_I -->|"Upsert vectors + metadata"| CHROMA
+
+    %% Styling
+    classDef client fill:#1e293b,stroke:#3b82f6,stroke-width:2px,color:#e2e8f0
+    classDef api fill:#1e293b,stroke:#8b5cf6,stroke-width:2px,color:#e2e8f0
+    classDef rag fill:#1e293b,stroke:#10b981,stroke-width:2px,color:#e2e8f0
+    classDef data fill:#1e293b,stroke:#f59e0b,stroke-width:2px,color:#e2e8f0
+    classDef external fill:#1e293b,stroke:#ef4444,stroke-width:2px,color:#e2e8f0
+    classDef ingestion fill:#1e293b,stroke:#06b6d4,stroke-width:2px,color:#e2e8f0
+
+    class USER,UI client
+    class HEALTH,QUERY,SOURCES,CORS,VALIDATION api
+    class QUERY_SVC,EMBED_Q,RETRIEVER,PROMPT,LLM_SVC,GROUNDING rag
+    class CHROMA,DOCS data
+    class GROQ external
+    class INGEST,CHUNKER,EMBED_I ingestion

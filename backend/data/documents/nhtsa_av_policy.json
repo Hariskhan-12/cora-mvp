@@ -1,0 +1,154 @@
+[
+  {
+    "title": "NHTSA Federal Automated Vehicles Policy (2016)",
+    "source": "National Highway Traffic Safety Administration, U.S. Department of Transportation",
+    "jurisdiction": "United States — Federal",
+    "document_type": "Policy Guidance",
+    "url": "https://www.nhtsa.gov/technology-innovation/automated-vehicles-safety",
+    "demo_note": "This is a summarized demo dataset based on publicly available NHTSA policy guidance. It is not a verbatim reproduction and should not be cited as authoritative.",
+    "sections": [
+      {
+        "section": "Vehicle Performance Guidance — System Safety",
+        "text": "Manufacturers and other entities should follow a robust design and validation process based on a systems-engineering approach for the development, testing, and deployment of automated driving systems. A systems-engineering approach includes a thorough and systematic process for the design of any ADS, beginning with the development of a concept of operations, followed by the identification of requirements, design, development, testing, and validation. Each entity developing ADS should define and document the Operational Design Domain (ODD) for their system, which describes the specific conditions under which a given driving automation system is designed to function."
+      },
+      {
+        "section": "Vehicle Performance Guidance — Operational Design Domain",
+        "text": "Entities should define the ODD for their automated driving system, including roadway types, geographic area, speed range, environmental conditions (weather, day/night), and other domain constraints. The ODD should clearly state the performance limitations of the system. The entity should have a documented process for assessing, testing, and validating the ADS within its defined ODD. Any operation outside the ODD should be identified, and the system should have a safe fallback response for these situations."
+      },
+      {
+        "section": "Vehicle Performance Guidance — Object and Event Detection and Response",
+        "text": "The automated driving system should be designed to detect and respond to objects and events that are relevant to the driving task within its ODD. This includes detection of other vehicles, pedestrians, cyclists, animals, and road hazards. The system's detection capabilities should be tested under a range of conditions, including varying light, weather, and road surface conditions. The system should be able to maintain a safe operational state and execute a minimal risk condition if it can no longer operate safely."
+      },
+      {
+        "section": "Vehicle Performance Guidance — Fallback (Minimal Risk Condition)",
+        "text": "Entities should define and document a minimal risk condition for their ADS. The minimal risk condition should bring the vehicle to a safe state when the ADS can no longer perform the entire dynamic driving task. This may include bringing the vehicle to a complete stop in a safe location. The transition from ADS control to a minimal risk condition should be managed safely and should not create additional hazards for other road users."
+      },
+      {
+        "section": "Vehicle Performance Guidance — Validation Methods",
+        "text": "Testing and validation of automated driving systems should include a combination of simulation testing, test-track testing, and on-road testing. Simulation testing allows evaluation under a broad range of scenarios that may be rare or difficult to replicate in the real world. Test-track testing provides controlled conditions for evaluating system performance. On-road testing demonstrates operation under real-world conditions. Entities should document their testing methodology and results."
+      },
+      {
+        "section": "Vehicle Performance Guidance — Human Machine Interface",
+        "text": "When an automated driving system is engaged, the vehicle should provide information to the operator and occupants about the current status of the ADS. This includes whether the system is functioning properly, whether it is operating within its ODD, and whether a transition to manual control is required. The interface should be designed to minimize driver distraction and confusion. Clear and timely alerts should be provided when the system requires the driver to resume manual control."
+      },
+      {
+        "section": "Vehicle Performance Guidance — Crashworthiness",
+        "text": "Vehicles equipped with automated driving systems should continue to meet all applicable Federal Motor Vehicle Safety Standards (FMVSS). If the ADS requires modifications to the vehicle structure, seating, or restraint systems, the entity should document how occupant protection is maintained. Any new vehicle configurations should be evaluated for crashworthiness."
+      },
+      {
+        "section": "Vehicle Performance Guidance — Post-Crash ADS Behavior",
+        "text": "After a crash, the ADS should be able to take appropriate actions to reduce the risk of additional harm. This may include transitioning to a minimal risk condition, shutting down the ADS, alerting emergency services, and ensuring fuel system integrity. Data recording capabilities should preserve relevant information about the crash event for subsequent analysis."
+      },
+      {
+        "section": "Vehicle Performance Guidance — Data Recording and Sharing",
+        "text": "Entities are encouraged to document and record data related to the performance of their ADS. Recommended data elements include ADS status (engaged or not engaged), sensor data relevant to crash or near-crash events, and actions taken by the ADS. Data sharing with NHTSA and relevant stakeholders is encouraged to advance the understanding of ADS safety performance."
+      },
+      {
+        "section": "Vehicle Performance Guidance — Consumer Education and Training",
+        "text": "Entities should develop and execute consumer education and training programs for their ADS-equipped vehicles. Consumers should be informed about the capabilities and limitations of the ADS, the conditions under which it is designed to operate, and the driver's role and responsibilities when the system is engaged. Education materials should be clear, accessible, and regularly updated."
+      },
+      {
+        "section": "Vehicle Performance Guidance — Cybersecurity",
+        "text": "Entities should follow a robust product development process that includes cybersecurity considerations. This includes identifying potential threats and vulnerabilities, protecting critical safety systems, detecting and responding to cyber incidents, and recovering from cyber attacks. Entities should follow established best practices and standards for automotive cybersecurity, and should have a process for timely response to identified vulnerabilities."
+      },
+      {
+        "section": "Vehicle Performance Guidance — Ethical Considerations",
+        "text": "Entities developing automated driving systems should consider the ethical implications of their systems. This includes how the system makes decisions when a crash is unavoidable, transparency about system capabilities, data privacy considerations, and equitable access. NHTSA encourages public discussion and engagement on the ethical aspects of automated vehicles."
+      }
+    ]
+  },
+  {
+    "title": "SAE J3016 — Levels of Driving Automation (Summary)",
+    "source": "SAE International",
+    "jurisdiction": "International Standard",
+    "document_type": "Technical Standard Summary",
+    "url": "https://www.sae.org/standards/content/j3016_202104/",
+    "demo_note": "This is a summarized demo dataset based on publicly available descriptions of SAE J3016. It is not the full standard text and should not be cited as authoritative.",
+    "sections": [
+      {
+        "section": "Level 0 — No Driving Automation",
+        "text": "The human driver performs the entire dynamic driving task, even when enhanced by active safety systems such as electronic stability control or automatic emergency braking. These support features do not qualify as driving automation because they do not perform part of the dynamic driving task on a sustained basis."
+      },
+      {
+        "section": "Level 1 — Driver Assistance",
+        "text": "A driving automation system performs either the lateral or longitudinal vehicle motion control subtask of the dynamic driving task (but not both simultaneously) with the expectation that the driver performs the remainder of the dynamic driving task. Examples include adaptive cruise control (longitudinal control) or lane-keeping assistance (lateral control). The driver must supervise the system at all times."
+      },
+      {
+        "section": "Level 2 — Partial Driving Automation",
+        "text": "A driving automation system performs both the lateral and longitudinal vehicle motion control subtasks of the dynamic driving task with the expectation that the driver completes the object and event detection and response subtask and supervises the driving automation system. The driver must remain engaged and monitor the driving environment at all times. The driver is responsible for taking over when the system requests or when it is otherwise appropriate."
+      },
+      {
+        "section": "Level 3 — Conditional Driving Automation",
+        "text": "A driving automation system performs the entire dynamic driving task within its operational design domain with the expectation that the DDT fallback-ready user is receptive to ADS-issued requests to intervene and to DDT-relevant system failures and will respond appropriately. The user does not need to monitor the driving environment while the system is operating within its ODD, but must be available to take over when the system issues a takeover request."
+      },
+      {
+        "section": "Level 4 — High Driving Automation",
+        "text": "A driving automation system performs the entire dynamic driving task and DDT fallback within its operational design domain without any expectation that a user will respond to a request to intervene. The system can bring the vehicle to a minimal risk condition if it reaches the limits of its ODD. A human driver is not required while the system is operating within its ODD, though a user may still have the option to take control."
+      },
+      {
+        "section": "Level 5 — Full Driving Automation",
+        "text": "A driving automation system performs the entire dynamic driving task and DDT fallback under all roadway and environmental conditions that can be managed by a human driver. The system can operate in all conditions where a human driver could operate, with no ODD limitations. No human driver is needed at any time while the system is engaged."
+      }
+    ]
+  },
+  {
+    "title": "California DMV Autonomous Vehicle Testing Regulations",
+    "source": "California Department of Motor Vehicles",
+    "jurisdiction": "United States — California",
+    "document_type": "State Regulation",
+    "url": "https://www.dmv.ca.gov/portal/vehicle-industry-services/autonomous-vehicles/",
+    "demo_note": "This is a summarized demo dataset based on publicly available California DMV autonomous vehicle regulations. It is not a verbatim reproduction and should not be cited as authoritative.",
+    "sections": [
+      {
+        "section": "Testing Permits — General Requirements",
+        "text": "Any manufacturer that wants to test autonomous vehicles on public roads in California must obtain an Autonomous Vehicle Testing Permit from the California DMV. The manufacturer must submit an application that includes evidence of insurance or a surety bond of $5 million, a list of all autonomous test vehicles, identification of the designated test drivers, and a certification that the autonomous technology satisfies all requirements. Test vehicles must be registered with the DMV."
+      },
+      {
+        "section": "Testing Permits — Test Driver Requirements",
+        "text": "A test driver (also called a safety operator) must be present in the vehicle during testing unless a driverless testing permit is obtained. The test driver must hold a valid driver's license, have received training in the autonomous technology being tested, be able to take immediate manual control of the vehicle, and must monitor the vehicle's operation at all times during testing."
+      },
+      {
+        "section": "Testing Permits — Driverless Testing",
+        "text": "Manufacturers may apply for a permit to test autonomous vehicles without a driver in the vehicle. For driverless testing permits, the manufacturer must certify that the vehicles can operate without the presence of a driver inside, that the vehicles meet applicable Federal Motor Vehicle Safety Standards, that communication between the vehicle and a remote operator is maintained at all times, and that the remote operator can monitor the vehicle's status and driving environment."
+      },
+      {
+        "section": "Deployment — General Requirements",
+        "text": "Manufacturers that wish to deploy autonomous vehicles to the public in California (beyond testing) must apply for a deployment permit. The deployment application requires the manufacturer to certify the vehicles are equipped with an autonomous technology data recorder, that law enforcement can interact with the vehicle during traffic stops, that the vehicle can detect and respond to road conditions and traffic, and that the manufacturer has a plan for communicating with law enforcement and emergency services."
+      },
+      {
+        "section": "Reporting — Collision Reports",
+        "text": "Manufacturers operating autonomous vehicles on California public roads must report any collision involving an autonomous vehicle to the DMV within 10 days. The collision report must include the date, time, and location of the collision, a description of the collision, the mode of the autonomous technology at the time of the collision (autonomous mode or conventional mode), and the damage and injuries that resulted. These reports are made available to the public."
+      },
+      {
+        "section": "Reporting — Disengagement Reports",
+        "text": "Manufacturers with testing permits must submit an annual report to the DMV documenting all disengagements of the autonomous technology during testing on public roads. A disengagement is defined as a deactivation of the autonomous mode when a failure of the autonomous technology is detected, or when the safe operation of the vehicle requires the test driver to disengage the autonomous mode and take immediate manual control. The report must include the circumstances and location of each disengagement."
+      }
+    ]
+  },
+  {
+    "title": "EU General Safety Regulation — Automated Driving Provisions",
+    "source": "European Commission, Regulation (EU) 2019/2144",
+    "jurisdiction": "European Union",
+    "document_type": "Regulation Summary",
+    "url": "https://eur-lex.europa.eu/eli/reg/2019/2144/oj",
+    "demo_note": "This is a summarized demo dataset based on publicly available information about EU Regulation 2019/2144. It is not a verbatim reproduction and should not be cited as authoritative.",
+    "sections": [
+      {
+        "section": "Article 6 — Advanced Vehicle Safety Systems",
+        "text": "New vehicles sold in the EU are required to be equipped with certain advanced safety systems. These include intelligent speed assistance, alcohol interlock installation facilitation, driver drowsiness and attention warning, advanced driver distraction warning, emergency stop signal, reversing detection, event data recorder, and accurate tyre pressure monitoring. These requirements are being phased in for new vehicle types and all new vehicles."
+      },
+      {
+        "section": "Article 11 — Automated Driving Systems",
+        "text": "The regulation establishes a framework for the type-approval of vehicles equipped with automated driving systems. Automated driving systems must be designed to ensure a high level of safety and must comply with relevant technical requirements. Manufacturers must demonstrate that their automated driving systems can handle the driving task within the defined operational design domain without requiring driver intervention. The system must be able to achieve a minimal risk condition if the system reaches its limits."
+      },
+      {
+        "section": "Article 11 — Data Recording Requirements",
+        "text": "Vehicles equipped with automated driving systems must be fitted with a data recording system (event data recorder). The data recorded must include information about the status of the automated driving system, including whether the system was activated, the transition between automated and manual driving, and requests for the driver to take over. This data must be available for accident investigation and must comply with data protection regulations."
+      },
+      {
+        "section": "Cybersecurity and Software Updates",
+        "text": "Vehicles with automated driving systems must meet cybersecurity requirements to protect against cyber attacks. Manufacturers must implement a cybersecurity management system and ensure that vehicle software can be updated securely. Over-the-air software updates must not compromise vehicle safety and must be properly validated before deployment. The manufacturer must maintain records of all software versions and updates."
+      }
+    ]
+  }
+]
